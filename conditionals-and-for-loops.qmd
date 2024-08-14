@@ -1,0 +1,203 @@
+---
+title: "EDS 221 day 3 practice"
+format: html
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r}
+pinyon_pine <- 14
+lodgepole_pine <- 46
+
+
+# some logical expressions
+pinyon_pine == 10
+pinyon_pine < lodgepole_pine
+pinyon_pine != 25
+
+```
+
+# Conditionals
+```{r}
+burrito <- 1.4
+
+# write a short "if" statement ----
+if(burrito > 2){
+  print("I love burritos!")
+}
+```
+
+
+```{r}
+# write and if-else statement ----
+pika <- 60 
+if(pika > 60) {
+  print("Mega pika")
+} else
+  print("Normal pika")
+```
+
+```{r}
+marmot <- 0.8
+
+if(marmot < 0.5) {
+  print("a small marmot!")
+} else if (marmot >= 0.5 & marmot < 3) {
+  print("a medium marmot!")
+} else
+  print("a large marmot!")
+```
+
+```{r}
+library(stringr)
+
+my_ships <- c("Millenium Falcon",
+              "X-wing", 
+              "Tie-Fighter", 
+              "Death Star")
+str_detect(my_ships, pattern = "r")
+```
+
+```{r}
+phrase <- "I hate burritos"
+
+if(str_detect(phrase, "love")){
+  print("burrito fan!")
+}
+```
+
+```{r}
+species = "mouse"
+
+switch(species, 
+       "cat" = print("Meow"), 
+       "dog" = print("Woof!"), 
+       "mouse" = print("Squeak"))
+```
+
+```{r}
+species = "cat"
+
+if (species == "mouse"){
+  print("squeak")
+  }else if (species == "dog")
+  {print("woof")
+  }else if(species == "cat"){
+  print("meow")
+}
+
+```
+
+```{r}
+# For loops
+
+dog_names <- c("Teddy", "Khora", "Banjo", "Waffle")
+
+for (pupster in dog_names){
+  print(paste0("My dog's name is ", pupster, "."))
+}
+```
+
+```{r}
+# another For loop example
+
+mass <- seq(from = 0, to = 3, by = 0.5)
+
+mass_1 <- mass[1]
+
+for (i in mass){
+  new_value <- i + 2
+print(new_value)
+}
+```
+
+```{r}
+mass <- seq(from = 0, to = 3, by = 0.5)
+
+for (i in seq_along(mass)) {
+  new_value <- mass[i] + 2
+  print(new_value)
+}
+```
+
+```{r}
+tree_height <- c(1, 2, 6, 10)
+
+for (i in seq_along(tree_height)) {
+new_value <- tree_height[i] + tree_height[i + 1]
+print(new_value)
+}
+
+```
+
+```{r}
+# For loops with conditionals
+
+animal <- c("cat", "dog", "dog", "zebra", "dog")
+for (i in seq_along(animal)){
+if (animal [i] == "dog"){
+  print("I love dogs")
+} else
+  print("this is not a dog")  
+}
+```
+
+```{r}
+# Another conditional For loop
+# use this to clear your environment "rm (list = ls())"
+species <-c("dog", "elephant", "goat", "dog", "dog", "elephant")
+
+age_human <- c(3, 8, 4, 6, 12, 18)
+
+for (i in seq_along(species)){
+if (species[i] == "dog") {
+  animal_age <- age_human[i] * 7
+} else if (species[i] == "elephant"){
+  animal_age <- age_human[i] * 0.88
+} else if (species[i] == "goat") {
+  animal_age <- age_human[i] * 4.7
+}
+print(animal_age)  
+}    
+```
+
+```{r}
+# Storing for loop output
+# create an empty vector for animal ages
+rm (list = ls())
+
+species <-c("dog", "elephant", "goat", "dog", "dog", "elephant")
+
+animal_ages <- vector(mode = "numeric", length = length(species))
+
+
+age_human <- c(3, 8, 4, 6, 12, 18)
+
+for (i in seq_along(species)){
+if (species[i] == "dog") {
+  animal_age <- age_human[i] * 7
+} else if (species[i] == "elephant"){
+  animal_age <- age_human[i] * 0.88
+} else if (species[i] == "goat") {
+  animal_age <- age_human[i] * 4.7
+}
+animal_ages[i] <- animal_age  
+} 
+
+```
+
+```{r}
+# another example of storing an output
+tigers <- c(29, 34, 82)
+lions <- c(2, 18, 6)
+
+big_cats <- vector(mode = "numeric", length = length(tigers))
+
+for (i in seq_along(tigers)){
+  total_cats <- tigers[i] + lions[i]
+  big_cats[i] <- total_cats
+}
+
+```
+
+
